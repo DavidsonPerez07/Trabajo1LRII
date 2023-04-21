@@ -70,7 +70,7 @@ public class ListaVendedores {
                 p = null;
             }
             else {
-                p.getLigaDer();
+                p = p.getLigaDer();
             }
         }
         return existe;
@@ -81,11 +81,68 @@ public class ListaVendedores {
         
         while (p != null) {
             if (p.getVendedor().getCodigo().equals(codigo)) {
-                p.getLigaDer().setLigaIzq(p.getLigaDer());
+                p.getLigaIzq().setLigaDer(p.getLigaDer());
+                p = null;
             }
             else {
-                p.getLigaDer();
+                p = p.getLigaDer();
             }
         }
+    }
+    
+    public double promedioVentas() {
+        double totalVentas = 0.0d;
+        int totalVendedores = 0;
+        NodoDobleVendedor p = cab.getLigaDer();
+        
+        while (p != null) {
+            totalVentas += p.getVendedor().getTotalVentas();
+            totalVendedores++;
+            p = p.getLigaDer();
+        }
+        
+        return totalVentas/totalVendedores;
+    }
+    
+    public double mayorVentasMujeres() {
+        NodoDobleVendedor p = cab.getLigaDer();
+        double mayorVentas = 0.0d;
+        
+        while (p != null) {
+            if (p.getVendedor().getSexo() == 'f' && p.getVendedor().getTotalVentas() > mayorVentas) {
+                mayorVentas = p.getVendedor().getTotalVentas();
+            }
+            p = p.getLigaDer();
+        }
+        
+        return mayorVentas;
+    }
+    
+    public double menorVentasHombres() {
+        NodoDobleVendedor p = cab.getLigaDer();
+        double menorVentas = 0.0d;
+        
+        while (p != null) {
+            if (p.getVendedor().getSexo() == 'm' && p.getVendedor().getTotalVentas() < menorVentas) {
+                menorVentas = p.getVendedor().getTotalVentas();
+            }
+            p = p.getLigaDer();
+        }
+        
+        return menorVentas;
+    }
+    
+    public int totalVendedores(char sexo) {
+        int total = 0;
+        NodoDobleVendedor p = cab.getLigaDer();
+        
+        while (p != null) {
+            if (p.getVendedor().getSexo() == sexo) {
+                total++;
+            }
+            p = p.getLigaDer();
+        }
+        
+        return total;
     }
 }

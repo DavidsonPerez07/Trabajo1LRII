@@ -32,7 +32,7 @@ public class Trabajo1LRII {
                         
                         lista.ingresarVendedor(codigo, nombre, sexo, ventas);
                         
-                        System.out.println("Ingreso exitoso");
+                        System.out.println("Ingreso exitoso");  
                     }
                     else {
                         System.out.println("El usuario ya se encuentra registrado");
@@ -52,18 +52,18 @@ public class Trabajo1LRII {
                     }
                 }
                 case '3' -> {
-                    System.out.println("El promedio de ventas de la empresa es: ");
+                    System.out.println("El promedio de ventas de la empresa es: " + lista.promedioVentas());
                 }
                 case '4' -> {
-                    System.out.println("El mayor total ventas de la mujeres es: ");
+                    System.out.println("El mayor total ventas de la mujeres es: " + lista.mayorVentasMujeres());
                 }
                 case '5' -> {
-                    System.out.println("El menor total ventas de los hombres es: ");
+                    System.out.println("El menor total ventas de los hombres es: " + lista.menorVentasHombres());
                 }
                 case '6' -> {
                     System.out.print("Ingrese el sexo del total de las personas a consultar: ");
                     var sexo = input.next().charAt(0);
-                    System.out.println("El total de vendedores de este sexo es: ");
+                    System.out.println("El total de vendedores de este sexo es: " + lista.totalVendedores(sexo));
                 }
                 case '7' -> {
                     char orden;
@@ -103,7 +103,7 @@ public class Trabajo1LRII {
             System.out.println("7. Mostrar los datos de la lista");
             System.out.println("8. Salir");
             opcion = input.next().charAt(0);
-        } while (opcion < '1' || opcion > '3');
+        } while (opcion < '1' || opcion > '8');
         
         return opcion;
     }
