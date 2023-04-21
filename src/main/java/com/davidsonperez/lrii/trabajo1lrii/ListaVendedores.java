@@ -67,7 +67,7 @@ public class ListaVendedores {
         while (p != null) {
             if (p.getVendedor().getCodigo().equals(codigo)) {
                 existe = true;
-                p = null;
+                p = null;   
             }
             else {
                 p = p.getLigaDer();

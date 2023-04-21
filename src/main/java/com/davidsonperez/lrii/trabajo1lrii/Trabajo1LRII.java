@@ -17,7 +17,6 @@ public class Trabajo1LRII {
             switch (opc) {
                 case '1' -> {
                     System.out.println("Ingrese los datos del/la vendedor/a: ");
-                    
                     System.out.print("Código: ");
                     var codigo = input.nextLine();
                     existe = lista.vendedorExiste(codigo);
@@ -32,7 +31,8 @@ public class Trabajo1LRII {
                         
                         lista.ingresarVendedor(codigo, nombre, sexo, ventas);
                         
-                        System.out.println("Ingreso exitoso");  
+                        System.out.println("Ingreso exitoso");
+                        input.nextLine();
                     }
                     else {
                         System.out.println("El usuario ya se encuentra registrado");
@@ -43,7 +43,7 @@ public class Trabajo1LRII {
                     var codigo = input.nextLine();
                     existe = lista.vendedorExiste(codigo);
                     
-                    if (existe) {
+                    if (existe == true) {
                         lista.eliminarVendedor(codigo);
                         System.out.println("Vendedor eliminado exitosamente");
                     }
@@ -71,7 +71,8 @@ public class Trabajo1LRII {
                     do {
                         System.out.print("Ingrese el orden en el que quiere imprimir la lista (d: al derecho, r: al revés): ");
                         orden = input.next().charAt(0);
-                    } while (orden != 'd' || orden != 'r');
+                        input.nextLine();
+                    } while (orden != 'd' && orden != 'r');
                     
                     System.out.println("El listado de los vendedores es: ");
                     
