@@ -43,7 +43,7 @@ public class Trabajo1LRII {
                     var codigo = input.nextLine();
                     existe = lista.vendedorExiste(codigo);
                     
-                    if (!existe) {
+                    if (existe) {
                         lista.eliminarVendedor(codigo);
                         System.out.println("Vendedor eliminado exitosamente");
                     }
