@@ -1,8 +1,8 @@
 package com.davidsonperez.lrii.trabajo1lrii;
 
 public class NodoDobleVendedor {
-    Vendedor vendedor;
-    NodoDobleVendedor ligaIzq, ligaDer;
+    private Vendedor vendedor;
+    private NodoDobleVendedor ligaIzq, ligaDer;
     
     public NodoDobleVendedor(){
         vendedor = null;
