@@ -20,22 +20,10 @@ public class ListaVendedores {
     public Vendedor mostrarLista(char orden) {
         Vendedor v = null;
         if (orden == 'd') {
-            x = x.getLigaDer();
-            
-            if (x == null) {
-                x = cab;
-            }
-            
-            v = x.getVendedor();
+            v = mostrarAlDerecho();
         }
         else if (orden == 'r') {
-            if (y == cab) {
-                y = ult;
-                return null;
-            }
-            
-            y = y.getLigaIzq();
-            v = y.getLigaDer().getVendedor();
+            v = mostrarAlReves();
         }
         return v;
     }
@@ -81,13 +69,28 @@ public class ListaVendedores {
         
         while (p != null) {
             if (p.getVendedor().getCodigo().equals(codigo)) {
+<<<<<<< HEAD
                 p.getLigaIzq().setLigaDer(p.getLigaDer());
                 p.getLigaDer().setLigaIzq(p.getLigaIzq());
                 p = null;
             }
             else {
                 p = p.getLigaDer();
+=======
+                desligarNodo(p);
+>>>>>>> 02daa018f72df758adae1e5329beed11b14acf31
             }
+            p = p.getLigaDer();
+        }
+    }
+    
+    private void desligarNodo(NodoDobleVendedor nodoDesligar){
+        if(nodoDesligar == ult){
+            nodoDesligar.getLigaIzq().setLigaDer(nodoDesligar.getLigaDer());
+        }
+        else{
+            nodoDesligar.getLigaDer().setLigaIzq(nodoDesligar.getLigaIzq());
+            nodoDesligar.getLigaIzq().setLigaDer(nodoDesligar.getLigaDer());
         }
     }
     
@@ -121,7 +124,7 @@ public class ListaVendedores {
     
     public double menorVentasHombres() {
         NodoDobleVendedor p = cab.getLigaDer();
-        double menorVentas = 0.0d;
+        double menorVentas = p.getVendedor().getTotalVentas();
         
         while (p != null) {
             if (p.getVendedor().getSexo() == 'm' && p.getVendedor().getTotalVentas() < menorVentas) {
