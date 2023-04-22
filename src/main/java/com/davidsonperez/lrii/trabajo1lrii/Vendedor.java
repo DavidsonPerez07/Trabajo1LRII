@@ -34,6 +34,6 @@ public class Vendedor {
 
     @Override
     public String toString() {
-        return codigo + " | " + nombre + " | " + sexo + " | " + totalVentas;
+        return codigo + " | " + nombre + " | " + sexo + " | " + totalVentas + "$";
     }
 }

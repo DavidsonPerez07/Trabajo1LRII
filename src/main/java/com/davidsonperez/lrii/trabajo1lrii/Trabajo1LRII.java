@@ -16,7 +16,7 @@ public class Trabajo1LRII {
             
             switch (opc) {
                 case '1' -> {
-                    System.out.println("Ingrese los datos del/la vendedor/a: ");
+                    System.out.println("\t\nIngrese los datos del/la vendedor/a: ");
                     System.out.print("Código: ");
                     var codigo = input.nextLine();
                     existe = lista.vendedorExiste(codigo);
@@ -31,54 +31,57 @@ public class Trabajo1LRII {
                         
                         lista.ingresarVendedor(codigo, nombre, sexo, ventas);
                         
-                        System.out.println("Ingreso exitoso");
+                        System.out.println("\t\nIngreso exitoso");
                         input.nextLine();
                     }
                     else {
-                        System.out.println("El usuario ya se encuentra registrado");
+                        System.out.println("\t\nEl usuario ya se encuentra registrado");
                     }
                     saltarLinea();
                 }
                 case '2' -> {
-                    System.out.print("Ingrese el código del vendedor a eliminar: ");
+                    System.out.print("\t\nIngrese el código del vendedor a eliminar: ");
                     var codigo = input.nextLine();
                     existe = lista.vendedorExiste(codigo);
                     
                     if (existe == true) {
                         lista.eliminarVendedor(codigo);
-                        System.out.println("Vendedor eliminado exitosamente");
+                        System.out.println("\t\nVendedor eliminado exitosamente");
                     }
                     else {
-                        System.out.println("No existe vendedor con este código");
+                        System.out.println("\t\nNo existe vendedor con este código");
                     }
                     saltarLinea();
                 }
                 case '3' -> {
-                    System.out.println("El promedio de ventas de la empresa es: " + lista.promedioVentas());
+                    System.out.println("\t\nEl promedio de ventas de la empresa es: " + lista.promedioVentas() + "$");
+                    saltarLinea();
                 }
                 case '4' -> {
-                    System.out.println("El mayor total ventas de la mujeres es: " + lista.mayorVentasMujeres());
+                    System.out.println("\t\nEl mayor total ventas de la mujeres es: " + lista.mayorVentasMujeres() + "$");
+                    saltarLinea();
                 }
                 case '5' -> {
-                    System.out.println("El menor total ventas de los hombres es: " + lista.menorVentasHombres());
+                    System.out.println("\t\nEl menor total ventas de los hombres es: " + lista.menorVentasHombres() + "$");
+                    saltarLinea();
                 }
                 case '6' -> {
-                    System.out.print("Ingrese el sexo del total de las personas a consultar: ");
+                    System.out.print("\t\nIngrese el sexo del total de las personas a consultar: ");
                     var sexo = input.next().charAt(0);
                     input.nextLine();
-                    System.out.println("El total de vendedores de este sexo es: " + lista.totalVendedores(sexo));
+                    System.out.println("\t\nEl total de vendedores de este sexo es: " + lista.totalVendedores(sexo));
                     saltarLinea();
                 }
                 case '7' -> {
                     char orden;
                     
                     do {
-                        System.out.print("Ingrese el orden en el que quiere imprimir la lista (d: al derecho, r: al revés): ");
+                        System.out.print("\t\nIngrese el orden en el que quiere imprimir la lista (d: al derecho, r: al revés): ");
                         orden = input.next().charAt(0);
                         input.nextLine();
                     } while (orden != 'd' && orden != 'r');
                     
-                    System.out.println("El listado de los vendedores es: ");
+                    System.out.println("\t\nEl listado de los vendedores es: ");
                     
                     vendedor = lista.mostrarLista(orden);
                     while (vendedor != null) {
@@ -87,7 +90,7 @@ public class Trabajo1LRII {
                     }
                     saltarLinea();
                 }
-                case '8' -> System.out.println("Saliendo del programa...");
+                case '8' -> System.out.println("\t\nSaliendo del programa...");
                 default -> {
                 }
             }
@@ -95,26 +98,26 @@ public class Trabajo1LRII {
     }
     
     private static void saltarLinea(){
-        System.out.println("\nPresione ENTER para continuar.");
+        System.out.println("\t\nPresione ENTER para continuar.");
         Scanner input = new Scanner(System.in);
         input.nextLine();
     }
-    
+     
     static char menu() {
         char opcion;
         Scanner input = new Scanner(System.in);
         
         do {
-            System.out.println("MENU");
-            System.out.println("1. Ingresar nuevo vendedor.");
-            System.out.println("2. Eliminar vendedor.");
-            System.out.println("3. Promedio de ventas de la empresa.");
-            System.out.println("4. Mostrar mayor total ventas de las mujeres.");
-            System.out.println("5. Mostrar menor total ventas de los hombres.");
-            System.out.println("6. Mostrar total de vendedores hombres o mujeres.");
-            System.out.println("7. Mostrar los datos de la lista.");
-            System.out.println("8. Salir");
-            System.out.print("Ingrese la opción: ");
+            System.out.println("\t============= MENU =============");
+            System.out.println("\t1. Ingresar nuevo vendedor.");
+            System.out.println("\t2. Eliminar vendedor.");
+            System.out.println("\t3. Promedio de ventas de la empresa.");
+            System.out.println("\t4. Mostrar mayor total ventas de las mujeres.");
+            System.out.println("\t5. Mostrar menor total ventas de los hombres.");
+            System.out.println("\t6. Mostrar total de vendedores hombres o mujeres.");
+            System.out.println("\t7. Mostrar los datos de la lista.");
+            System.out.println("\t8. Salir");
+            System.out.print("\nIngrese la opción: ");
             opcion = input.next().charAt(0);
         } while (opcion < '1' || opcion > '8');
         

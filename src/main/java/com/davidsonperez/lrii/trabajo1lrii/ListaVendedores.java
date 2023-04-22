@@ -69,18 +69,9 @@ public class ListaVendedores {
         
         while (p != null) {
             if (p.getVendedor().getCodigo().equals(codigo)) {
-<<<<<<< HEAD
-                p.getLigaIzq().setLigaDer(p.getLigaDer());
-                p.getLigaDer().setLigaIzq(p.getLigaIzq());
-                p = null;
-            }
-            else {
-                p = p.getLigaDer();
-=======
                 desligarNodo(p);
->>>>>>> 02daa018f72df758adae1e5329beed11b14acf31
             }
-            p = p.getLigaDer();
+             p = p.getLigaDer();
         }
     }
     
